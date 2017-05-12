@@ -13,6 +13,6 @@ python CblcScrapy.py
 ```
 
 ## Todo
-- Improove unit tests
+- Check coverage
 - Create save file from extract
 - Create parameter -v (verbose) in CblcScrapy.py
