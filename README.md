@@ -1,6 +1,12 @@
 # CblcScraping
+[![Build Status](https://travis-ci.org/derrix060/CblcScraping.svg?branch=master)](https://travis-ci.org/derrix060/CblcScraping)
 
 ## How to use
+
+First of all install the dependencies
+```
+pip install -r requirements.txt
+```
 
 To run tests:
 ```
