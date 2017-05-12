@@ -116,29 +116,5 @@ class CblcTestPosicaoEmAberto(unittest.TestCase):
             self.down.valida_integridade_posicao_em_aberto(empresimos)
 
 
-class CblcTestSuite(unittest.TestSuite):
-    def __init__(self):
-        unittest.TestSuite.__init__(self, map(CblcTestCase,
-                                              ("test_emprestimos_registrados connection",
-                                              "teste_remove_header_footer",
-                                              "teste_get_arquivo_errado"),
-                                              CblcTestEmprestimosRegistrados,
-                                              ("teste_header_errado",
-                                              "teste_footer_errado",
-                                              "teste_datas_erradas",
-                                              "teste_qtde_linhas_erradas",
-                                              "teste_linhas_erradas",
-                                              "teste_arquivo_correto",
-                                              "teste_arquivo_incompleto"),
-                                              CblcTestPosicaoEmAberto,
-                                              ("teste_header_errado",
-                                              "teste_footer_errado",
-                                              "teste_datas_erradas",
-                                              "teste_qtde_linhas_erradas",
-                                              "teste_linhas_erradas",
-                                              "teste_arquivo_correto",
-                                              "teste_arquivo_incompleto")))
-
-
 if __name__ == '__main__':
     unittest.main()
