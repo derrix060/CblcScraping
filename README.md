@@ -19,6 +19,7 @@ python CblcScrapy.py
 ```
 
 ## Todo
+- Change test_CblcScrapy file to test folder
 - Check coverage
 - Create save file from extract
 - Create parameter -v (verbose) in CblcScrapy.py
