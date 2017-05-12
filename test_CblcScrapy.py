@@ -64,6 +64,11 @@ class CblcTestEmprestimosRegistrados(unittest.TestCase):
         empresimos = self.get_file(self.loc + 'arq_correto.txt')
         self.down.valida_integridade_emprestimos_registrados(empresimos)
 
+    def teste_arquivo_incompleto(self):
+        empresimos = self.get_file(self.loc + 'arq_incompleto.txt')
+        with self.assertRaisesRegex(ValueError, 'incompleto') as context:
+            self.down.valida_integridade_emprestimos_registrados(empresimos)
+
 
 class CblcTestPosicaoEmAberto(unittest.TestCase):
     down = Downloaders()
@@ -105,20 +110,34 @@ class CblcTestPosicaoEmAberto(unittest.TestCase):
         empresimos = self.get_file(self.loc + 'arq_correto.txt')
         self.down.valida_integridade_posicao_em_aberto(empresimos)
 
+    def teste_arquivo_incompleto(self):
+        empresimos = self.get_file(self.loc + 'arq_incompleto.txt')
+        with self.assertRaisesRegex(ValueError, 'incompleto') as context:
+            self.down.valida_integridade_posicao_em_aberto(empresimos)
+
 
 class CblcTestSuite(unittest.TestSuite):
     def __init__(self):
         unittest.TestSuite.__init__(self, map(CblcTestCase,
                                               ("test_emprestimos_registrados connection",
                                               "teste_remove_header_footer",
-                                              "teste_get_arquivo_errado")),
+                                              "teste_get_arquivo_errado"),
                                               CblcTestEmprestimosRegistrados,
                                               ("teste_header_errado",
                                               "teste_footer_errado",
                                               "teste_datas_erradas",
                                               "teste_qtde_linhas_erradas",
                                               "teste_linhas_erradas",
-                                              "teste_arquivo_correto"))
+                                              "teste_arquivo_correto",
+                                              "teste_arquivo_incompleto"),
+                                              CblcTestPosicaoEmAberto,
+                                              ("teste_header_errado",
+                                              "teste_footer_errado",
+                                              "teste_datas_erradas",
+                                              "teste_qtde_linhas_erradas",
+                                              "teste_linhas_erradas",
+                                              "teste_arquivo_correto",
+                                              "teste_arquivo_incompleto")))
 
 
 if __name__ == '__main__':

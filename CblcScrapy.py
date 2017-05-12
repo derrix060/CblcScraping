@@ -18,6 +18,12 @@ class Downloaders():
             raise ValueError('Começo do header não confere com o padrão: "{}". Padrão encontrado: "{}"'.format(header_padrao, header_encontrado))
         elif verboso:
             print('Header ok.')
+        
+        # Valida arquivo completo
+        if (arquivo[len(arquivo) -1][:2] != str(99)):
+            raise ValueError('Arquivo está incompleto. Era esperado ({}) e foi encontrado ({})!'.format(str(99), arquivo[len(arquivo) -1][:2]))
+        elif verboso:
+            print('Arquivo completo.')
 
         # Valida linhas do arquivo a partir do footer
         qtde_linhas_encontrado = len(arquivo)
