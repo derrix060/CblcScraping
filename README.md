@@ -23,3 +23,5 @@ python CblcScrapy.py
 - Check coverage
 - Create save file from extract
 - Create parameter -v (verbose) in CblcScrapy.py
+- add tox support
+- add coverage support
